@@ -1,42 +1,45 @@
-# Autimilezzz Frontend
+# Autimilezzz Backend API
 
-Static frontend for the Autimilezzz car information platform.
+Node.js + Express backend for the Autimilezzz car information platform.
 
 ## Quick Start
 
-Simply open `index.html` in a web browser, or use a local server:
-
+1. Install dependencies:
 ```bash
-npx serve .
+npm install
+```
+
+2. Create `.env` file:
+```env
+MONGODB_URI=your_mongodb_connection_string
+PORT=5000
+```
+
+3. Start the server:
+```bash
+npm start
 ```
 
 ## Deployment on Render
 
 ### Configuration
-- **Root Directory:** `frontend`
+- **Root Directory:** `backend`
 - **Build Command:** `npm install`
-- **Publish Directory:** `.`
-- **Site Type:** Static Site
+- **Start Command:** `npm start`
+- **Environment:** Node
 
-### Important: Update API Endpoint
+### Environment Variables
+Add these in Render dashboard:
+- `MONGODB_URI` - Your MongoDB Atlas connection string
 
-Before deploying, update the API endpoint in your JavaScript files to point to your deployed backend:
+## API Endpoints
 
-Replace: `http://localhost:5000`
-With: `https://your-backend-name.onrender.com`
+- `GET /` - Health check
+- `GET /api/posts` - Get all posts
+- `POST /api/posts` - Create new post
 
-## Files Structure
+## MongoDB Setup
 
-- `index.html` - Main HTML file
-- `styles.css` - Styling
-- `app.js` - Application logic
-- `data.js` - Car data
-- `package.json` - Package configuration
+Get your connection string from MongoDB Atlas and add it to the environment variables.
 
-## Features
-
-- Responsive design
-- Car browsing and comparison
-- Budget-based recommendations
-- Video reviews
-- Detailed specifications
+Format: `mongodb+srv://username:password@cluster.mongodb.net/dbname?retryWrites=true&w=majority`
