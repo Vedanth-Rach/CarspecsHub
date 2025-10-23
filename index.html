@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarSpecs India - Indian Car Information Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>CarSpecs India</h1>
+                        <div class="subtitle">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Indian Car Information Platform</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="compareBtn" class="compare-btn">
+                    <i class="fas fa-exchange-alt"></i>
+                    Compare Variants
+                </button>
+                
+                <button id="budgetBtn" class="budget-btn">
+                    <i class="fas fa-calculator"></i>
+                    Budget Finder
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Car Showcase -->
+            <section id="carShowcase" class="car-showcase">
+                <!-- Dynamic content will be inserted here -->
+            </section>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Left Column - Car & Variant Selector -->
+                <div class="left-column">
+                    <div id="carSelector" class="car-selector">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                    
+                    <div id="variantSelector" class="variant-selector">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Middle Column - Specs & Features -->
+                <div class="middle-column">
+                    <div id="specsPanel" class="specs-panel">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                    <div id="featuresPanel" class="features-panel">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Right Column - Car Details -->
+                <div class="right-column">
+                    <div id="carDetails" class="car-details">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Information -->
+            <section class="brand-info">
+                <h2>Popular Indian Car Brands</h2>
+                <div class="brand-grid">
+                    <div class="brand-card mahindra">
+                        <h3>Mahindra</h3>
+                        <p>Leading Indian SUV manufacturer known for rugged and feature-rich vehicles like XUV700 and Scorpio.</p>
+                    </div>
+                    <div class="brand-card toyota">
+                        <h3>Toyota</h3>
+                        <p>Global leader in reliability and fuel efficiency, popular for Innova Crysta and Fortuner in India.</p>
+                    </div>
+                    <div class="brand-card maruti">
+                        <h3>Maruti Suzuki</h3>
+                        <p>India's largest car manufacturer, known for fuel-efficient and affordable cars like Swift and Baleno.</p>
+                    </div>
+                    <div class="brand-card tata">
+                        <h3>Tata Motors</h3>
+                        <p>Indian automotive giant known for safety-first approach with 5-star rated cars like Nexon and Harrier.</p>
+                    </div>
+                    <div class="brand-card hyundai">
+                        <h3>Hyundai</h3>
+                        <p>Korean brand popular in India for stylish design and advanced features in cars like Creta and Venue.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Comparison Modal -->
+    <div id="comparisonModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Variant Comparison</h2>
+                <button id="closeModal" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="comparisonContent" class="comparison-content">
+                <!-- Dynamic comparison content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Budget Modal -->
+    <div id="budgetModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Find Cars Within Your Budget</h2>
+                <button id="closeBudgetModal" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="budget-modal-content">
+                <form id="budgetForm" class="budget-form">
+                    <div class="budget-input-group">
+                        <label for="budget">What's your budget for a new car?</label>
+                        <div class="budget-input-wrapper">
+                            <span class="currency-symbol">₹</span>
+                            <input type="number" 
+                                   id="budget" 
+                                   name="budget" 
+                                   placeholder="Enter your budget in rupees" 
+                                   min="300000" 
+                                   max="10000000" 
+                                   step="50000" 
+                                   required>
+                            <span class="budget-unit">Lakhs</span>
+                        </div>
+                        <div class="budget-suggestions">
+                            <button type="button" onclick="setBudget(500000)">₹5 Lakh</button>
+                            <button type="button" onclick="setBudget(1000000)">₹10 Lakh</button>
+                            <button type="button" onclick="setBudget(1500000)">₹15 Lakh</button>
+                            <button type="button" onclick="setBudget(2000000)">₹20 Lakh</button>
+                            <button type="button" onclick="setBudget(3000000)">₹30 Lakh</button>
+                        </div>
+                    </div>
+                    <button type="submit" class="budget-submit-btn">Find Recommended Cars</button>
+                </form>
+                
+                <div id="budgetRecommendations" class="budget-recommendations">
+                    <!-- Dynamic budget recommendations -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script>
+        function setBudget(amount) {
+            document.getElementById('budget').value = amount;
+        }
+    </script>
+</body>
+</html>
